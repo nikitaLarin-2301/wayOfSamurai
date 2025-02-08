@@ -1,19 +1,15 @@
-import s from './MyPost.module.css';
+import styles from './MyPost.module.css';
 import { Post } from './Post/Post.jsx';
 
-export const MyPosts = () => {
+export const MyPosts = ( props ) => {
 
-	const posts = [
-		{ id: 1, message: 'Hi, how are you?', likesCount: 15 },
-		{ id: 2, message: 'It`s my first post', likesCount: 20 },
-	];
-
-	const postElements = posts.map( post => <Post message={ post.message } likesCount={ post.likesCount } /> );
+	const postElements = props.posts.map( post => <Post message={ post.message }
+	                                                    likesCount={ post.likesCount } /> );
 
 	return (
-		<div className={ s.postsBlock }>
+		<div className={ styles.postsBlock }>
 			<h3>My posts</h3>
-			<div className={ s.postControl }>
+			<div className={ styles.postControl }>
 				<div>
 					<textarea></textarea>
 				</div>
@@ -22,10 +18,9 @@ export const MyPosts = () => {
 				</div>
 			</div>
 
-			<div className={ s.posts }>
+			<div className={ styles.posts }>
 				{ postElements }
 			</div>
 		</div>
 	);
 };
-
