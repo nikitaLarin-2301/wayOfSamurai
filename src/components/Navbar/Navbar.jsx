@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
-import { MyFriends } from './MyFriend/MyFriends.jsx';
+import { MyFriends } from './MyFriends/MyFriends.jsx';
 
 export const Navbar = ( props ) => {
 
@@ -25,7 +25,9 @@ export const Navbar = ( props ) => {
 			</div>
 
 			<div className={ styles.sidebar }>
-				<NavLink activeClassName={ styles.activeLink } to='/friends'>Friends</NavLink>
+				<div className={ styles.item }>
+					<NavLink activeClassName={ styles.activeLink } to='/friends'>Friends</NavLink>
+				</div>
 				<MyFriends friends={ props.state.friends } />
 			</div>
 		</nav> );

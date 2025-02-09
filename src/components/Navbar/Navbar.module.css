@@ -1,12 +1,16 @@
+a {
+	color: white;
+	text-decoration: none;
+}
+
 .nav {
 	gria-area: n;
 	background: green;
 	padding: 20px;
 }
 
-.item a {
-	color: white;
-	text-decoration: none;
+.item {
+	font-size: 20px;
 }
 
 .item a.activeLink {
@@ -14,13 +18,14 @@
 }
 
 .links {
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 }
 
 .sidebar {
 }
 
-.sidebar a {
+.sidebar .item {
 	display: inline-block;
 	margin-bottom: 15px;
 }
+

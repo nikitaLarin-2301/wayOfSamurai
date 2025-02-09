@@ -1,9 +1,21 @@
-import ReactDOM from 'react-dom';
 import './index.css';
-import { App } from './App.jsx';
-import { state } from './redux/state.js';
+import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { App } from './App.jsx';
+import {
+	addMessage, addPost, state, subscribe, updateNewMessageText, updateNewPostText
+} from './redux/state.js';
 
-ReactDOM.render( <BrowserRouter>
-	<App state={ state } />
-</BrowserRouter>, document.getElementById( 'root' ) );
+const rerenderEntireTree = ( state ) => {
+	ReactDOM.render( <BrowserRouter>
+		<App state={ state }
+		     addPost={ addPost }
+		     updateNewPostText={ updateNewPostText }
+		     addMessage={ addMessage }
+		     updateNewMessageText={ updateNewMessageText }
+		/>
+	</BrowserRouter>, document.getElementById( 'root' ) );
+};
+
+rerenderEntireTree( state );
+subscribe( rerenderEntireTree );
