@@ -1,20 +1,21 @@
 import React from 'react';
 import styles from './MyPost.module.css';
 import { Post } from './Post/Post.jsx';
+import { addPostCreator, updateNewPostTextCreator } from '../../../redux/state.js';
 
 export const MyPosts = ( props ) => {
-	const postElements = props.posts.map( post => <Post message={ post.message }
-	                                                    likesCount={ post.likesCount } /> );
+	const postElements = props.state.posts.map( post => <Post message={ post.message }
+	                                                          likesCount={ post.likesCount } /> );
 
 	const newPostElement = React.createRef();
 
-	const onPostChange = () => {
-		const text = newPostElement.current.value;
-		props.updateNewPostText( text );
+	const addPost = () => {
+		props.dispatch( addPostCreator() );
 	};
 
-	const addPost = () => {
-		props.addPost();
+	const onPostChange = () => {
+		const text = newPostElement.current.value;
+		props.dispatch( updateNewPostTextCreator( text ) );
 	};
 
 	return (
@@ -23,7 +24,7 @@ export const MyPosts = ( props ) => {
 			<div className={ styles.postControl }>
 				<div>
 					<textarea ref={ newPostElement }
-					          value={ props.newPostText }
+					          value={ props.state.newPostText }
 					          onChange={ onPostChange } />
 				</div>
 				<div>
