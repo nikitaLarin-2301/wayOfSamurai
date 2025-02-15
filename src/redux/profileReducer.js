@@ -18,7 +18,7 @@ const initialState = {
 	newPostText: ''
 };
 
-export const profileReducer = ( state, action ) => {
+export const profileReducer = ( state = initialState, action ) => {
 	switch ( action.type ) {
 		case ADD_POST:
 			const newPost = {
