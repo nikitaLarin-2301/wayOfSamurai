@@ -2,15 +2,15 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import { DialogItem } from './DialogItem/DialogItem.jsx';
 import { Message } from './Messages/Messages.jsx';
-import { addMessageCreator, updateNewMessageTextCreator } from '../../redux/state.js';
+import { addMessageCreator, updateNewMessageTextCreator } from '../../redux/dialogsReducer.js';
 
 export const Dialogs = ( props ) => {
-	const dialogsElements = props.state.dialogs.map( dialog => <DialogItem
-		name={ dialog.name }
-		id={ dialog.id } /> );
+	const dialogsElements = props.state.dialogs.map( dialog => <DialogItem key={ dialog.id }
+	                                                                       name={ dialog.name }
+	                                                                       id={ dialog.id } /> );
 
-	const messagesElements = props.state.messages.map( message => <Message
-		message={ message.message } /> );
+	const messagesElements = props.state.messages.map( message => <Message key={ message.id }
+	                                                                       message={ message.message } /> );
 
 	const newMessageElement = React.createRef();
 
