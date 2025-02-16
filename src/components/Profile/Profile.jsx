@@ -1,11 +1,11 @@
 import { ProfileInfo } from './ProfileInfo/ProfileInfo.jsx';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer.jsx';
 
-export const Profile = ( props ) => {
+export const Profile = () => {
 	return (
 		<div>
 			<ProfileInfo />
-			<MyPostsContainer store={ props.store } />
+			<MyPostsContainer />
 		</div>
 	);
 };

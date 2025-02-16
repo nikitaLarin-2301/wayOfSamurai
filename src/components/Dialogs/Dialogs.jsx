@@ -3,12 +3,12 @@ import { DialogItem } from './DialogItem/DialogItem.jsx';
 import { Message } from './Messages/Messages.jsx';
 
 export const Dialogs = ( props ) => {
-	const dialogsElements = props.dialogs.map( dialog => <DialogItem key={ dialog.id }
-	                                                                 name={ dialog.name }
-	                                                                 id={ dialog.id } /> );
+	const dialogsElements = props.dialogsPage.dialogs.map( dialog => <DialogItem key={ dialog.id }
+	                                                                             name={ dialog.name }
+	                                                                             id={ dialog.id } /> );
 
-	const messagesElements = props.messages.map( message => <Message key={ message.id }
-	                                                                 message={ message.message } /> );
+	const messagesElements = props.dialogsPage.messages.map( message => <Message key={ message.id }
+	                                                                             message={ message.message } /> );
 
 	const addMessage = () => {
 		props.sendMessage();
@@ -28,7 +28,7 @@ export const Dialogs = ( props ) => {
 
 			<div>
 				<div>
-				<textarea value={ props.newMessageText }
+				<textarea value={ props.dialogsPage.newMessageText }
 				          onChange={ onMessageChange } />
 				</div>
 				<div>

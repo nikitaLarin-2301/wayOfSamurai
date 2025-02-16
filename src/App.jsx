@@ -13,13 +13,13 @@ export const App = ( props ) => {
 	return (
 		<div className='app-wrapper'>
 			<Header />
-			<Navbar state={ props.state.sidebar } />
+			<Navbar state={ props.store.getState().sidebar } />
 
 			<div className='app-wrapper-content'>
 				<Route path='/profile'
-				       render={ () => <Profile store={ props.store } /> } />
+				       render={ () => <Profile /> } />
 				<Route path='/dialogs'
-				       render={ () => <DialogsContainer store={ props.store } /> } />
+				       render={ () => <DialogsContainer /> } />
 				<Route path='/news' render={ () => <News /> } />
 				<Route path='/music' render={ () => <Music /> } />
 				<Route path='/settings' render={ () => <Settings /> } />
